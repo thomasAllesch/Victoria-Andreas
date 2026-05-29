@@ -1034,6 +1034,318 @@
         grid-template-columns: 1fr;
       }
     }
+  
+
+    /* Mobile polish: desktop stays unchanged; these rules only apply on phones */
+    @media (max-width: 640px) {
+      :root {
+        --radius-xl: 26px;
+        --radius-lg: 20px;
+      }
+
+      .container {
+        width: min(100% - 22px, var(--max-width));
+      }
+
+      body {
+        line-height: 1.62;
+      }
+
+      .topbar {
+        background: rgba(63, 40, 25, 0.96);
+      }
+
+      .nav {
+        min-height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 9px 0 8px;
+      }
+
+      .brand {
+        font-size: 1.06rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 7px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 1px 0 3px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a,
+      .nav-links a:not(.button),
+      .nav-links .button {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 7px 11px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 248, 237, 0.15);
+        background: rgba(255, 248, 237, 0.08);
+        color: rgba(255, 248, 237, 0.92);
+        font-size: 0.72rem;
+        font-weight: 850;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .nav-links .button {
+        background: var(--rose-soft);
+        border-color: var(--rose-soft);
+        color: var(--brown-dark);
+      }
+
+      .hero {
+        padding: 42px 0 58px;
+      }
+
+      .hero::before {
+        height: 260px;
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .eyebrow {
+        padding: 7px 12px;
+        font-size: 0.68rem;
+        margin-bottom: 14px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.05rem, 17vw, 4.75rem);
+        line-height: 0.9;
+        margin-bottom: 20px;
+      }
+
+      .hero-text,
+      .section-title p,
+      .gift-box p {
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 42px;
+        padding: 11px 15px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .date-ribbon {
+        width: 100%;
+        margin-top: 24px;
+        padding: 13px 16px;
+        font-size: 1rem;
+      }
+
+      .photo-composition {
+        min-height: 390px;
+        margin-top: -6px;
+      }
+
+      .line-art.hero-line {
+        width: 160px;
+        right: -10px;
+        top: -18px;
+        opacity: 0.42;
+      }
+
+      .polaroid.main {
+        inset: 8px 20px 72px 0;
+        transform: rotate(1.2deg);
+      }
+
+      .polaroid.small {
+        width: 154px;
+        height: 172px;
+        right: 0;
+        bottom: 2px;
+        transform: rotate(-4deg);
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .section-title {
+        margin-bottom: 26px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .cards {
+        gap: 14px;
+      }
+
+      .card {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .card-icon {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 13px;
+        font-size: 1.22rem;
+      }
+
+      .card h3,
+      .location-content h3 {
+        font-size: 1.32rem;
+      }
+
+      .flow-layout {
+        gap: 22px;
+      }
+
+      .date-panel {
+        min-height: 330px;
+        padding: 24px;
+      }
+
+      .date-panel-art {
+        width: 90%;
+        top: 56%;
+        opacity: 0.42;
+      }
+
+      .date-panel .date {
+        font-size: clamp(3rem, 18vw, 4.7rem);
+      }
+
+      .timeline-wrap {
+        padding-left: 18px;
+      }
+
+      .timeline-wrap::before {
+        left: 5px;
+      }
+
+      .timeline-item {
+        gap: 6px;
+        padding: 17px 18px;
+        margin-bottom: 11px;
+      }
+
+      .timeline-item::before {
+        left: -19px;
+        top: 24px;
+      }
+
+      .time {
+        font-size: 0.9rem;
+      }
+
+      .location-card {
+        border-radius: 28px;
+      }
+
+      .location-image {
+        height: 230px;
+      }
+
+      .location-content {
+        padding: 22px;
+      }
+
+      .route-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .form-wrap,
+      .gift-box {
+        border-radius: 28px;
+        padding: 22px;
+      }
+
+      .form-grid {
+        gap: 16px;
+      }
+
+      input,
+      select,
+      textarea,
+      .radio-group,
+      .checkbox-group {
+        border-radius: 16px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 12px 14px;
+      }
+
+      .choice {
+        align-items: flex-start;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .choice input {
+        margin-top: 4px;
+      }
+
+      .iban-card {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .gallery-drop {
+        border-radius: 28px;
+        padding: 34px 20px;
+      }
+
+      footer {
+        padding: 42px 0;
+      }
+
+      footer .names {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a,
+      .nav-links a:not(.button),
+      .nav-links .button {
+        padding-inline: 9px;
+        font-size: 0.68rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.72rem, 16vw, 3.9rem);
+      }
+    }
+
   </style>
 </head>
 <body>
