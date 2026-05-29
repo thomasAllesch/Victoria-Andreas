@@ -1223,14 +1223,36 @@
       }
 
       .date-panel {
-        min-height: 330px;
+        min-height: auto;
         padding: 24px;
+        gap: 12px;
       }
 
       .date-panel-art {
-        width: 90%;
-        top: 56%;
-        opacity: 0.42;
+        position: relative;
+        left: auto;
+        top: auto;
+        width: min(76%, 260px);
+        max-height: 210px;
+        margin: -6px auto 2px;
+        transform: none;
+        opacity: 0.72;
+        object-fit: contain;
+        order: 2;
+        z-index: 1;
+      }
+
+      .date-panel > div {
+        order: 1;
+      }
+
+      .date-panel > p {
+        order: 3;
+        margin-top: 6px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 248, 237, 0.12);
+        border: 1px solid rgba(255, 248, 237, 0.18);
       }
 
       .date-panel .date {
@@ -1346,7 +1368,82 @@
       }
     }
 
-  </style>
+
+    /* Ablauf panel: bridge awkward 641–700px range so small tablets/large phones use the clean mobile layout */
+    @media (min-width: 641px) and (max-width: 700px) {
+      .flow-layout {
+        gap: 22px;
+      }
+
+      .date-panel {
+        min-height: auto;
+        padding: 24px;
+        gap: 12px;
+      }
+
+      .date-panel-art {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: min(76%, 260px);
+        max-height: 210px;
+        margin: -6px auto 2px;
+        transform: none;
+        opacity: 0.72;
+        object-fit: contain;
+        order: 2;
+        z-index: 1;
+      }
+
+      .date-panel > div {
+        order: 1;
+      }
+
+      .date-panel > p {
+        order: 3;
+        margin-top: 6px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 248, 237, 0.12);
+        border: 1px solid rgba(255, 248, 237, 0.18);
+      }
+
+      .date-panel .date {
+        font-size: clamp(3rem, 18vw, 4.7rem);
+      }
+    }
+
+  
+    @media (max-width: 940px) {
+      .date-panel {
+        min-height: 600px;
+        padding: 28px;
+        justify-content: flex-start;
+        gap: 28px;
+      }
+
+      .date-panel-art {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: min(320px, 72%);
+        margin: 0 auto;
+        display: block;
+        opacity: 0.5;
+      }
+
+      .date-panel > p {
+        margin-top: auto;
+        padding: 18px 20px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(6px);
+      }
+    }
+
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -1369,7 +1466,7 @@
           <div class="eyebrow">Wir heiraten</div>
           <h1>Victoria <span>&</span><br />Andreas</h1>
           <p class="hero-text">
-            Mit großer Freude laden wir euch ein, gemeinsam mit uns unsere Hochzeit zu feiern. Hier findet ihr alle wichtigen Informationen zu Datum, Orten, Ablauf, Anreise, Menüauswahl und Rückmeldung.
+            Mit großer Freude laden wir euch ein, gemeinsam mit uns unsere Hochzeit zu feiern. Hier findet Ihr alle wichtigen Informationen zu Datum, Orten, Ablauf, Anreise, Menüauswahl und Rückmeldung.
           </p>
           <div class="hero-actions">
             <a href="#rsvp" class="button">Anmelden</a>
@@ -1422,7 +1519,7 @@
             <div class="card-icon">🍂</div>
             <h3>Datum</h3>
             <p><strong>Mittwoch, 26. August 2026</strong></p>
-            <p>Bitte gebt uns bis spätestens <strong>15. Juli 2026</strong> Bescheid, ob ihr dabei seid.</p>
+            <p>Bitte gebt uns bis spätestens <strong>15. Juli 2026</strong> Bescheid, ob Ihr dabei seid.</p>
           </article>
 
           <article class="card">
@@ -1488,7 +1585,7 @@
               <div class="time">18:00</div>
               <div>
                 <h3>Abendessen</h3>
-                <p>Gemeinsames Dinner beim Höhenwirt mit eurer vorab gewählten Menüoption.</p>
+                <p>Gemeinsames Dinner beim Höhenwirt mit Eurer vorab gewählten Menüoption.</p>
               </div>
             </article>
 
@@ -1712,8 +1809,8 @@
       <div class="container gift-box">
         <div>
           <div class="eyebrow">Geschenke</div>
-          <h2>Das größte Geschenk ist, dass ihr mit uns feiert.</h2>
-          <p>Falls ihr uns zusätzlich eine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
+          <h2>Das größte Geschenk ist, dass Ihr mit uns feiert.</h2>
+          <p>Falls Ihr uns zusätzlich eine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
         </div>
 
         <div class="iban-card">
@@ -1730,14 +1827,14 @@
       <div class="container">
         <div class="section-title center">
           <div class="label">Fotos</div>
-          <h2>Teilt eure schönsten Momente mit uns.</h2>
-          <p>Ladet eure Fotos gerne hier hoch!</p>
+          <h2>Teilt Eure schönsten Momente mit uns.</h2>
+          <p>Ladet Eure Fotos gerne hier hoch!</p>
         </div>
 
         <div class="gallery-drop">
           <div class="icon">📷</div>
           <h3>Foto-Upload</h3>
-          <p>Ladet hier gerne eure Fotos von der Hochzeit hoch</p>
+          <p>Ladet hier gerne Eure Fotos von der Hochzeit hoch</p>
           <a 
   href="https://www.dropbox.com/request/28q286260thnruwe4p2h"
   target="_blank"
