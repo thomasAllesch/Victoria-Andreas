@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria & Andreas feiern Hochzeit</title>
+  <style>
+    :root {
+      --ink: #332217;
+      --brown-dark: #3f2819;
+      --brown: #6f4c35;
+      --brown-soft: #9a7358;
+      --wood: #b98761;
+      --cream: #fff8ed;
+      --paper: #f6e8d8;
+      --paper-light: #fffdf8;
+      --rose: #d7a0a2;
+      --rose-soft: #f1d6d4;
+      --terracotta: #b66e50;
+      --ochre: #c79a58;
+      --sage: #89906f;
+      --line: rgba(63, 40, 25, 0.18);
+      --shadow: 0 26px 70px rgba(63, 40, 25, 0.16);
+      --radius-xl: 38px;
+      --radius-lg: 26px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(215, 160, 162, 0.26), transparent 30%),
+        radial-gradient(circle at 85% 8%, rgba(199, 154, 88, 0.22), transparent 28%),
+        linear-gradient(180deg, #fffaf2 0%, #f4e4d3 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      opacity: 0.34;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(63, 40, 25, 0.12) 0 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(182, 110, 80, 0.12) 0 1px, transparent 1px);
+      background-size: 30px 30px, 42px 42px;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at center, transparent 52%, rgba(63, 40, 25, 0.045) 100%);
+      opacity: 0.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .script {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(63, 40, 25, 0.91);
+      color: var(--cream);
+      border-bottom: 1px solid rgba(255, 248, 237, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(255, 248, 237, 0.86);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-soft);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 23px;
+      border-radius: 999px;
+      border: 1px solid var(--brown-dark);
+      background: var(--brown-dark);
+      color: var(--cream);
+      font-weight: 850;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      box-shadow: 0 14px 30px rgba(63, 40, 25, 0.18);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--brown-dark);
+      border-color: rgba(63, 40, 25, 0.32);
+    }
+
+    .button.secondary:hover {
+      background: var(--brown-dark);
+      color: var(--cream);
+    }
+
+    .topbar .button {
+      background: var(--rose-soft);
+      border-color: var(--rose-soft);
+      color: var(--brown-dark);
+    }
+
+    .hero {
+      position: relative;
+      padding: 92px 0 96px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40px -10vw auto -10vw;
+      height: 340px;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(215,160,162,0.28), transparent 18%),
+        radial-gradient(circle at 78% 24%, rgba(199,154,88,0.22), transparent 16%),
+        linear-gradient(180deg, rgba(255,253,248,0.88), rgba(246,232,216,0.65));
+      border-bottom-left-radius: 48% 22%;
+      border-bottom-right-radius: 42% 18%;
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 110px auto auto 50%;
+      width: 1200px;
+      height: 260px;
+      transform: translateX(-50%);
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='1200' height='260' viewBox='0 0 1200 260' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 166C96 108 170 102 272 146C367 188 459 204 558 154C650 107 741 83 836 130C936 179 1030 196 1200 102' stroke='%23b98761' stroke-width='3' stroke-linecap='round' stroke-opacity='0.32'/%3E%3Cpath d='M12 202C120 160 203 162 296 196C396 233 473 229 574 184C666 144 747 128 851 167C956 208 1036 211 1188 146' stroke='%23d7a0a2' stroke-width='2.4' stroke-linecap='round' stroke-opacity='0.28'/%3E%3Cpath d='M246 134C260 118 278 114 294 122C279 137 262 142 246 134Z' stroke='%236f4c35' stroke-width='2' stroke-linejoin='round' stroke-opacity='0.32'/%3E%3Cpath d='M832 118C846 102 864 98 880 106C865 121 848 126 832 118Z' stroke='%236f4c35' stroke-width='2' stroke-linejoin='round' stroke-opacity='0.32'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(255, 248, 237, 0.78);
+      border: 1px solid rgba(63, 40, 25, 0.12);
+      color: var(--terracotta);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.6rem, 9vw, 8.2rem);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      font-weight: 500;
+      margin-bottom: 28px;
+      color: var(--brown-dark);
+    }
+
+    .hero h1 span {
+      color: var(--rose);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      font-size: 1.18rem;
+      color: var(--brown);
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .date-ribbon {
+      margin-top: 34px;
+      display: inline-grid;
+      grid-template-columns: auto auto auto;
+      gap: 18px;
+      align-items: center;
+      padding: 16px 22px;
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      border: 1px solid rgba(63, 40, 25, 0.12);
+      color: var(--brown);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+      box-shadow: 0 12px 30px rgba(63, 40, 25, 0.08);
+    }
+
+    .date-ribbon i {
+      width: 44px;
+      height: 1px;
+      background: var(--rose);
+      display: block;
+    }
+
+    .photo-composition {
+      position: relative;
+      min-height: 590px;
+    }
+
+    .polaroid {
+      position: absolute;
+      background: #fffaf2;
+      border: 1px solid rgba(63, 40, 25, 0.1);
+      box-shadow: var(--shadow);
+      padding: 14px 14px 64px;
+    }
+
+    .polaroid.main {
+      inset: 30px 60px 40px 10px;
+      transform: rotate(2.4deg);
+    }
+
+    .polaroid.small {
+      width: 245px;
+      height: 270px;
+      right: 4px;
+      bottom: 38px;
+      z-index: 3;
+      transform: rotate(-6deg);
+      padding-bottom: 46px;
+    }
+
+    
+.photo-fill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    .tape {
+      position: absolute;
+      width: 150px;
+      height: 40px;
+      background: rgba(246, 232, 216, 0.78);
+      box-shadow: 0 8px 18px rgba(63, 40, 25, 0.12);
+      z-index: 4;
+      transform: rotate(-5deg);
+      left: 34%;
+      top: 8px;
+    }
+
+    .line-art {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.62;
+      color: var(--brown);
+    }
+
+    .line-art.hero-line {
+      width: 240px;
+      right: 10px;
+      top: 0;
+      transform: rotate(10deg);
+    }
+
+    .section {
+      position: relative;
+      padding: 86px 0;
+    }
+
+    .section.paper-section {
+      background: rgba(255, 253, 248, 0.58);
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .section-title.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title .label {
+      margin-bottom: 10px;
+      color: var(--terracotta);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4.45rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      color: var(--brown);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(255, 253, 248, 0.92), rgba(246, 232, 216, 0.82));
+      border: 1px solid rgba(63, 40, 25, 0.13);
+      box-shadow: 0 18px 44px rgba(63, 40, 25, 0.09);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -54px;
+      top: -54px;
+      border-radius: 50%;
+      background: rgba(215, 160, 162, 0.2);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-light);
+      border: 1px solid rgba(182, 110, 80, 0.2);
+      font-size: 1.45rem;
+    }
+
+    .card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 1.48rem;
+      margin-bottom: 8px;
+    }
+
+    .no-frame {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.no-frame .photo-fill {
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.no-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+    .card p {
+      color: var(--brown);
+      font-size: 0.98rem;
+    }
+
+    .flow-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+.date-panel {
+  min-height: 440px;
+  border-radius: var(--radius-xl);
+  padding: 38px;
+  color: var(--cream);
+  background:
+    linear-gradient(rgba(63, 40, 25, 0.88), rgba(63, 40, 25, 0.92)),
+    repeating-linear-gradient(90deg, #b98761 0 24px, #a87552 24px 48px, #c19673 48px 72px);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.date-panel-art {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: 76%;
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+
+  animation: softRoseMood 2s ease-in-out infinite alternate;
+}
+
+@keyframes softRoseMood {
+
+  0% {
+    filter:
+      sepia(0.75)
+      saturate(1.4)
+      brightness(1)
+      hue-rotate(0deg);
+  }
+
+  20% {
+    filter:
+      sepia(0.82)
+      saturate(1.6)
+      brightness(1.04)
+      hue-rotate(6deg);
+  }
+
+  40% {
+    filter:
+      sepia(0.88)
+      saturate(1.7)
+      brightness(1.08)
+      hue-rotate(10deg);
+  }
+
+  60% {
+    filter:
+      sepia(0.84)
+      saturate(1.55)
+      brightness(1.05)
+      hue-rotate(14deg);
+  }
+
+  80% {
+    filter:
+      sepia(0.8)
+      saturate(1.5)
+      brightness(1.03)
+      hue-rotate(8deg);
+  }
+
+  100% {
+    filter:
+      sepia(0.75)
+      saturate(1.4)
+      brightness(1)
+      hue-rotate(0deg);
+  }
+}
+.date-panel > *:not(.date-panel-art) {
+  position: relative;
+  z-index: 1;
+}
+    .date-panel::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(255, 248, 237, 0.18);
+      border-radius: 50%;
+      right: -120px;
+      top: -80px;
+    }
+
+    .date-panel .small {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--rose-soft);
+    }
+
+    .date-panel .date {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      margin: 24px 0;
+    }
+
+    .timeline-wrap {
+      position: relative;
+      padding-left: 34px;
+    }
+
+    .timeline-wrap::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 2px;
+      height: calc(100% - 20px);
+      background: linear-gradient(var(--rose), var(--terracotta), var(--ochre));
+      border-radius: 999px;
+      opacity: 0.8;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 94px 1fr;
+      gap: 18px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      background: rgba(255, 253, 248, 0.86);
+      border: 1px solid rgba(63, 40, 25, 0.12);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 30px rgba(63, 40, 25, 0.07);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 28px;
+      width: 12px;
+      height: 12px;
+      background: var(--terracotta);
+      border: 4px solid var(--cream);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(63, 40, 25, 0.15);
+    }
+
+    .time {
+      color: var(--terracotta);
+      font-weight: 900;
+    }
+
+    .timeline-item h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .timeline-item p {
+      color: var(--brown);
+      font-size: 0.96rem;
+    }
+
+    .locations {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+.location-card {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 253, 248, 0.88);
+  border: 1px solid rgba(63, 40, 25, 0.13);
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.location-image {
+  height: 350px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.location-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+    .location-image::before {
+      content: "";
+      width: 86px;
+      height: 86px;
+      border-radius: 28px;
+      border: 2px dashed rgba(63, 40, 25, 0.24);
+      background:
+        linear-gradient(135deg, transparent 0 48%, rgba(63, 40, 25, 0.18) 49% 51%, transparent 52%),
+        linear-gradient(45deg, transparent 0 48%, rgba(63, 40, 25, 0.18) 49% 51%, transparent 52%);
+      opacity: 0.7;
+    }
+
+
+    .route-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .route-actions .button {
+      min-height: 46px;
+      padding: 12px 16px;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .route-note {
+      margin-top: 12px;
+      color: var(--brown-soft);
+      font-size: 0.88rem;
+    }
+
+    .location-content {
+      padding: 30px;
+    }
+
+    .location-content h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .location-content p {
+      color: var(--brown);
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+    }
+
+    .form-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px;
+      padding: clamp(24px, 5vw, 48px);
+      background:
+        linear-gradient(145deg, rgba(255, 253, 248, 0.94), rgba(246, 232, 216, 0.88));
+      border: 1px solid rgba(63, 40, 25, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .form-wrap::before {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(215, 160, 162, 0.2);
+    }
+
+    .form-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.84rem;
+      font-weight: 900;
+      color: var(--brown);
+      letter-spacing: 0.04em;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(63, 40, 25, 0.24);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: var(--brown-dark);
+      background: var(--paper-light);
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 4px rgba(182, 110, 80, 0.16);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 253, 248, 0.72);
+      border: 1px solid rgba(63, 40, 25, 0.12);
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brown);
+      font-size: 0.96rem;
+    }
+
+    .choice input {
+      width: auto;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(215, 160, 162, 0.2);
+      color: var(--brown);
+      font-size: 0.95rem;
+      border: 1px solid rgba(215, 160, 162, 0.28);
+    }
+
+    .gift-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 50px);
+      border-radius: 44px;
+      color: var(--cream);
+      background:
+        linear-gradient(rgba(63, 40, 25, 0.9), rgba(63, 40, 25, 0.92)),
+        repeating-linear-gradient(90deg, #b98761 0 24px, #a87653 24px 48px, #c19673 48px 72px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gift-box::after {
+      content: "♡";
+      position: absolute;
+      right: 40px;
+      top: 24px;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: rgba(255, 248, 237, 0.1);
+    }
+
+    .gift-box h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .gift-box p {
+      color: var(--paper);
+      font-size: 1.05rem;
+    }
+
+    .iban-card {
+      background: rgba(255, 248, 237, 0.12);
+      border: 1px solid rgba(255, 248, 237, 0.25);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+    }
+
+    .iban-card span {
+      display: block;
+      color: var(--rose-soft);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .iban-card strong {
+      display: block;
+      font-size: clamp(1.05rem, 2.2vw, 1.48rem);
+      letter-spacing: 0.04em;
+      word-break: break-word;
+    }
+
+    .gallery-drop {
+      border: 2px dashed rgba(63, 40, 25, 0.28);
+      border-radius: 38px;
+      padding: 48px 28px;
+      text-align: center;
+      background: rgba(255, 253, 248, 0.7);
+    }
+
+    .gallery-drop .icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .gallery-drop h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .gallery-drop p {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      color: var(--brown);
+    }
+
+    footer {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+      text-align: center;
+      color: var(--cream);
+      background: var(--brown-dark);
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background: repeating-linear-gradient(90deg, #b98761 0 26px, #7b5136 26px 52px);
+    }
+
+    footer .container {
+      position: relative;
+    }
+
+    footer .names {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .ornament {
+      display: block;
+      width: min(420px, 86vw);
+      height: 70px;
+      margin: 28px auto 0;
+      color: var(--brown-soft);
+      opacity: 0.72;
+    }
+
+    @media (max-width: 940px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero-grid,
+      .flow-layout,
+      .gift-box {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-composition {
+        min-height: 500px;
+      }
+
+      .cards,
+      .locations {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 64px 0 76px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .nav-links a:not(.button) {
+        display: none;
+      }
+
+      .date-ribbon {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        border-radius: 24px;
+        text-align: center;
+      }
+
+      .date-ribbon i {
+        width: 100%;
+      }
+
+      .polaroid.main {
+        inset: 16px 8px 98px 8px;
+      }
+
+      .polaroid.small {
+        width: 190px;
+        height: 210px;
+        right: 0;
+        bottom: 18px;
+      }
+
+      .form-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-wrap {
+        padding-left: 24px;
+      }
+
+      .timeline-item::before {
+        left: -25px;
+      }
+
+      .card,
+      .date-panel,
+      .location-content {
+        padding: 24px;
+      }
+
+      .route-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">Victoria & Andreas</a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#details">Details</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#anreise">Anreise</a>
+        <a href="#geschenke">Geschenke</a>
+        <a href="#rsvp" class="button">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Wir heiraten</div>
+          <h1>Victoria <span>&</span><br />Andreas</h1>
+          <p class="hero-text">
+            Mit großer Freude laden wir euch ein, gemeinsam mit uns unsere Hochzeit zu feiern. Hier findet ihr alle wichtigen Informationen zu Datum, Orten, Ablauf, Anreise, Menüauswahl und Rückmeldung.
+          </p>
+          <div class="hero-actions">
+            <a href="#rsvp" class="button">Anmelden</a>
+            <a href="#ablauf" class="button secondary">Ablauf ansehen</a>
+          </div>
+          <div class="date-ribbon" aria-label="Hochzeitsdatum">
+            <span>26. August</span>
+            <i></i>
+            <span>2026</span>
+          </div>
+        </div>
+
+        <div class="photo-composition" aria-label="Platzhalter für Fotos des Brautpaares">
+          <svg class="line-art hero-line" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="index copy.html" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M169 116C176 114 185 116 190 122C183 126 174 126 169 116Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M44 42C37 40 29 42 24 48C32 52 40 51 44 42Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+  
+          <div class="polaroid main no-frame">
+            <div class="photo-fill">
+              <img src="Andi_Vici_Foto.png" alt="Victoria und Andreas" />
+            </div>
+          </div>
+          <div class="polaroid small no-frame">
+                     <div class="photo-fill">
+              <img src="test111.png" alt="Detailfoto" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section paper-section">
+      <div class="container">
+        <div class="section-title center">
+          <div class="label">Wichtige Infos</div>
+        
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">♡</div>
+            <h3>Kontakt</h3>
+            <p><strong>Brautpaar:</strong> Victoria Kuska & Andreas Allesch</p>
+            <p><strong>Kontakt:</strong> hochzeit26.08.2026@gmail.com</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🍂</div>
+            <h3>Datum</h3>
+            <p><strong>Mittwoch, 26. August 2026</strong></p>
+            <p>Bitte gebt uns bis spätestens <strong>15. Juli 2026</strong> Bescheid, ob ihr dabei seid.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">👗</div>
+            <h3>Dresscode</h3>
+            <p><strong>Formell.</strong> Warme Naturtöne, Beige, Braun, Rosé, Terracotta und gedeckte Herbstfarben passen wunderbar. Weiß bleibt bitte der Braut vorbehalten 😉.</p>
+          </article>
+        </div>
+
+        <svg class="ornament" viewBox="0 0 420 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 40C88 5 126 68 192 34C250 4 284 28 316 42C350 57 378 49 400 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M314 42C322 34 333 32 343 36C334 44 324 47 314 42Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M190 34C198 27 209 26 218 31C209 38 199 40 190 34Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="ablauf" class="section">
+      <div class="container flow-layout">
+<aside class="date-panel">
+  <img class="date-panel-art" src="Zeichnung_Vici.png" alt="" />
+
+  <div>
+    <div class="small">Save the date</div>
+    <div class="date">26.08.<br />2026</div>
+  </div>
+
+  <p>Trauung in der Filialkirche Reifnitz St. Anna, danach Empfang, Abendessen und Feier beim Höhenwirt.</p>
+</aside>
+
+        <div>
+          <div class="section-title">
+            <div class="label">Ablauf</div>
+            <h2>So ist der Tag geplant.</h2>
+          </div>
+
+          <div class="timeline-wrap">
+            <article class="timeline-item">
+              <div class="time">14:00</div>
+              <div>
+                <h3>Trauung</h3>
+                <p>Filialkirche Reifnitz St. Anna.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="time">15:00</div>
+              <div>
+                <h3>Fotos</h3>
+                <p>Zeit für gemeinsame Fotos und kurze Gratulationen.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="time">16:30</div>
+              <div>
+                <h3>Sektempfang</h3>
+                <p>Ankommen und Anstoßen beim Höhenwirt.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="time">18:00</div>
+              <div>
+                <h3>Abendessen</h3>
+                <p>Gemeinsames Dinner beim Höhenwirt mit eurer vorab gewählten Menüoption.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="time">20:30</div>
+              <div>
+                <h3>Torte & Tanz</h3>
+                <p>Danach feiern wir gemeinsam in den Abend.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="time">00:00</div>
+              <div>
+                <h3>Good Night</h3>
+                <p>Offizielles Ende</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="anreise" class="section paper-section">
+      <div class="container">
+        <div class="section-title center">
+          <div class="label">Anreise & Orte</div>
+          <h2>Kirche und Locations</h2>
+          <p>Öffnet die Route direkt am iPhone in Apple Karten oder alternativ in Google Maps.</p>
+        </div>
+
+<div class="locations">
+  <article class="location-card">
+    <div class="location-image">
+      <img src="St.Anna.png" alt="Filialkirche Reifnitz St. Anna">
+    </div>
+
+    <div class="location-content">
+      <h3>Filialkirche Reifnitz St. Anna</h3>
+
+      <p>
+        <strong>Trauung um 14:00 Uhr</strong><br>
+        Filialkirche St. Anna<br>
+        9081 Reifnitz am Wörthersee
+      </p>
+
+      <p>
+        Bitte plant genügend Zeit für die Anreise und Parkplatzsuche ein.
+      </p>
+
+<div class="route-actions" aria-label="Routenoptionen zur Kirche">
+  <a
+    href="#"
+    class="button map-button"
+    data-apple="https://maps.apple.com/?q=Filialkirche%20St.%20Anna%20Reifnitz%2C%209081%20Reifnitz%20am%20W%C3%B6rthersee"
+    data-google="https://www.google.com/maps/dir/?api=1&destination=Filialkirche%20St.%20Anna%20Reifnitz%2C%209081%20Reifnitz%20am%20W%C3%B6rthersee&travelmode=driving"
+  >
+    Route öffnen
+  </a>
+  </article>
+
+  <article class="location-card">
+    <div class="location-image">
+  <img src="Hoehenwirt.png" alt="Höhenwirt Keutschach">
+</div>
+
+    <div class="location-content">
+      <h3>Höhenwirt</h3>
+
+      <p>
+        <strong>Sektempfang, Dinner & Feier</strong><br>
+        Höhe 4<br>
+        9074 Keutschach am See
+      </p>
+
+      <p>
+        Dort finden Empfang, Abendessen und die Feier statt.
+      </p>
+
+<div class="route-actions" aria-label="Routenoptionen zum Höhenwirt">
+  <a
+    href="#"
+    class="button map-button"
+    data-apple="https://maps.apple.com/?q=Gasthaus%20Hotel%20H%C3%B6henwirt%2C%20H%C3%B6he%204%2C%209074%20Keutschach%20am%20See"
+    data-google="https://www.google.com/maps/dir/?api=1&destination=Gasthaus%20Hotel%20H%C3%B6henwirt%2C%20H%C3%B6he%204%2C%209074%20Keutschach%20am%20See&travelmode=driving"
+  >
+    Route öffnen
+  </a>
+  </article>
+</div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section">
+      <div class="container">
+        <div class="section-title center">
+          <div class="label">Rückmeldung</div>
+          <h2>Sagt uns bitte bis 15. Juli 2026 Bescheid.</h2>      
+          </div>
+
+        <form id="rsvp-form" class="form-wrap">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required />
+            </div>
+
+            <div class="field full">
+              <label>Ich komme zur Hochzeit</label>
+              <div class="radio-group">
+                <label class="choice"><input type="radio" name="attendance" value="yes" required /> Ja, ich bin dabei.</label>
+                <label class="choice"><input type="radio" name="attendance" value="no" /> Leider kann ich nicht kommen.</label>
+              </div>
+            </div>
+
+
+
+
+            <div class="field full">
+              <label>Zimmerreservierung</label>
+              <div class="radio-group">
+                <label class="choice"><input type="radio" name="zimmer" value="ja" /> Ja, ich möchte ein Zimmer reservieren.</label>
+                <label class="choice"><input type="radio" name="zimmer" value="nein" checked /> Nein, ich benötige kein Zimmer.</label>
+              </div>
+            </div>
+
+<div class="field full">
+  <label>Menüauswahl</label>
+
+  <!-- Vorspeise -->
+  <div class="checkbox-group">
+    <strong>Vorspeise (optional, max. 1 Auswahl)</strong>
+
+
+    <label class="choice">
+      <input type="radio" name="vorspeise" value="rindssuppe" />
+      Rindsuppe mit Fritatten
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="vorspeise" value="gemischter_salat" />
+      Rindsuppe mit Grießnockerl
+    </label>
+
+        <label class="choice">
+      <input type="radio" name="vorspeise" value="keine" checked />
+      Keine Vorspeise
+    </label>
+  </div>
+
+  <!-- Hauptspeise -->
+  <div class="checkbox-group" style="margin-top: 16px;">
+    <strong>Hauptspeise (optional, max. 1 Auswahl)</strong><p>Für alle gibt es Salat vom Buffet.</p>
+
+    <label class="choice">
+      <input type="radio" name="hauptspeise" value="zwiebelrostbraten" />
+      Zwiebelrostbraten
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="hauptspeise" value="rinderfilet" />
+      Reinankenfilet auf Kartoffel-Mangoldgemüse und hausgem. Bärlauchöl
+    </label>
+
+    <label class="choice">
+      <input type="radio" name="hauptspeise" value="polenta_vegan" />
+      Gegrillte Polenta mit mediterranem Gemüse (Vegan)
+    </label>
+
+
+    <label class="choice">
+      <input type="radio" name="hauptspeise" value="keine" checked />
+      Keine Hauptspeise
+    </label>
+
+  </div>
+
+  <!-- Nachspeise -->
+  <div class="checkbox-group" style="margin-top: 16px;">
+    <strong>Nachspeise (optional, max. 1 Auswahl)</strong>
+
+
+    <label class="choice">
+      <input type="radio" name="nachspeise" value="panna_cotta" />
+      Dessertvariation: Panna Cotta auf Beerenspiegel, Walnussparfait, 1 Kugel hausgem. Fruchtsorbet
+    </label>
+
+        <label class="choice">
+      <input type="radio" name="nachspeise" value="keine" checked />
+      Keine Nachspeise
+    </label>
+
+
+  </div>
+</div>
+            <div class="field full">
+              <label>Unverträglichkeiten oder besondere Wünsche</label>
+              <div class="checkbox-group">
+                <label class="choice"><input type="checkbox" name="notes[]" value="glutenfree" /> Glutenfrei</label>
+                <label class="choice"><input type="checkbox" name="notes[]" value="lactosefree" /> Laktosefrei</label>
+                <label class="choice"><input type="checkbox" name="notes[]" value="nuts" /> Nussallergie</label>
+                <label class="choice"><input type="checkbox" name="notes[]" value="other" /> Sonstiges, siehe Nachricht</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="message">Nachricht an das Brautpaar</label>
+              <textarea id="message" name="message" placeholder="Optional: Nachricht, Fragen oder Hinweise"></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="button" type="submit">Rückmeldung absenden</button>
+  
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="geschenke" class="section paper-section">
+      <div class="container gift-box">
+        <div>
+          <div class="eyebrow">Geschenke</div>
+          <h2>Das größte Geschenk ist, dass ihr mit uns feiert.</h2>
+          <p>Falls ihr uns zusätzlich eine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
+        </div>
+
+        <div class="iban-card">
+          <span>Kontodaten für Geldgeschenke</span>
+          <strong>IBAN: AT48 3900 0000 0110 3290</strong>
+          <br />
+          <span>Verwendungszweck</span>
+          <strong>Victoria Kuska & Andreas Allesch Hochzeit</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="fotos" class="section">
+      <div class="container">
+        <div class="section-title center">
+          <div class="label">Fotos</div>
+          <h2>Teilt eure schönsten Momente mit uns.</h2>
+          <p>Ladet eure Fotos gerne hier hoch!</p>
+        </div>
+
+        <div class="gallery-drop">
+          <div class="icon">📷</div>
+          <h3>Foto-Upload</h3>
+          <p>Ladet hier gerne eure Fotos von der Hochzeit hoch</p>
+          <a 
+  href="https://www.dropbox.com/request/28q286260thnruwe4p2h"
+  target="_blank"
+  class="button secondary"
+>
+  Fotos hochladen
+</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="names">Victoria & Andreas</div>
+      <p>Wir freuen uns darauf, mit euch zu feiern.</p>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("GjBaVtRO_sgX9Am_F");
+
+document
+  .getElementById("rsvp-form")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    emailjs.sendForm(
+      "service_u5n33wk",
+      "template_pgct6ca",
+      this
+    )
+    .then(() => {
+
+      alert("Vielen Dank 💌 Eure Rückmeldung wurde gesendet!");
+
+      this.reset();
+
+    })
+    .catch((error) => {
+
+      console.error(error);
+
+      alert("Ups 😅 Etwas ist schiefgelaufen.");
+
+    });
+
+});
+</script>
+<script>
+  document.querySelectorAll(".map-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const isAppleDevice =
+        /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+
+      const url = isAppleDevice
+        ? button.dataset.apple
+        : button.dataset.google;
+
+      window.open(url, "_blank", "noopener");
+    });
+  });
+</script>
+
+</body>
+</html>
